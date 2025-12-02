@@ -11,8 +11,10 @@ class SearchForm extends React.Component<SearchFormPropsTypes> {
   }
   handleSubmit(e:React.FormEvent<HTMLFormElement>) { 
     e.preventDefault();
+    const form = e.currentTarget; 
     const query = JSON.stringify((e.target as any).elements.Buscar.value);
     this.props.onSearch(query);
+    form.reset();
   }
   render() { 
     return (
